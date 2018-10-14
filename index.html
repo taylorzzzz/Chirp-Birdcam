@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * { box-sizing: border-box;}
+        body {margin: 0; padding: 0}
+        .container {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            height: 100vh;
+            width: 100vw;
+        }
+        .frame-container {
+            display: inline-block;
+            position: relative;
+            margin: 0;
+            width: 50vw;
+            height: 50vh;
+            overflow: hidden;
+            border: 1px solid red;
+        }
+        .inner-container {
+            width: 100%;
+            display: inline-block;
+            position: relative;
+        }
+        .dummy { 
+            padding-top: 56%;
+        }
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="frame-container">
+            <div class="inner-container">
+                <div class="dummy"></div>
+                <iframe  src="https://www.youtube.com/embed/p0xkbudsFqo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="frame-container">
+            <div class="inner-container">
+                <div class="dummy"></div>
+                <iframe  src="https://www.youtube.com/embed/_lUdl2_981w" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="frame-container">
+            <div class="inner-container">
+                <div class="dummy"></div>
+                <iframe  src="https://www.youtube.com/embed/UjALrXRNzGE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="frame-container">
+            <div class="inner-container">
+                <div class="dummy"></div>
+                <iframe  src="https://www.youtube.com/embed/BP8mCXXwDfc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+<!--
+    So what do we need to do for this Chirp Birdcam page? The end result is basically
+    a grid of four embedded youtube live streams. These should cover the whole page. Now
+    what issues might we have with getting the streams? One problem could be that some
+    of the streams are taken down periodically in which case the video id will change and the
+    links used in the iframes are no longer valid. How can we deal with this? One possibility 
+    is that we schedule some kind of check each night which let's say, returns all current 
+    live streams for a given channel. 
+
+    Another question is: How can we tell if a stream goes down? Perhaps we do a periodic check
+    using the api to see if those videos which we are embedding. 
+    
+    Setting all this aside for now, lets say, asasuming that the streams never or very rarely go
+    down and we can rely on those streams which we have selected to stay up, what else do we need 
+    to do? 
+    
+    One thing is figure out how to display the videos so that they cover the whole screen nicely.
+    
+    Another thing is how we would change videos.
+
+    Lets start with displaying the videos.
+
+    Right now, we are simply embedding our youtube videos by placing <iframe> tags in the html. 
+    We might want to eventually be able to set the height 
+
+
+-->
