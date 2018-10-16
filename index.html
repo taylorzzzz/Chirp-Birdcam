@@ -58,6 +58,14 @@
             width: 100%;
             height: 100%;
         }
+        /* .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,.25);
+        } */
         @media (max-aspect-ratio: 16 / 9) {
             .inner-container {
                 width: calc(50vh * 1.78);
@@ -75,8 +83,6 @@
             <div class="inner-container">
                 <div class="dummy"></div>
                 <div id="player-1"></div>
-                <!-- <iframe  src="https://www.youtube.com/embed/p0xkbudsFqo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                -->
             </div>
         </div>
 
@@ -84,8 +90,6 @@
             <div class="inner-container">
                 <div class="dummy"></div>
                 <div id="player-2"></div>
-                <!-- <iframe  src="https://www.youtube.com/embed/_lUdl2_981w" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    -->
             </div>
         </div>
 
@@ -93,8 +97,6 @@
             <div class="inner-container">
                 <div class="dummy"></div>
                 <div id="player-3"></div>
-                <!-- <iframe  src="https://www.youtube.com/embed/UjALrXRNzGE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    -->
             </div>
         </div>
 
@@ -102,8 +104,6 @@
             <div class="inner-container">
                 <div class="dummy"></div>
                 <div id="player-4"></div>
-                <!-- <iframe  src="https://www.youtube.com/embed/BP8mCXXwDfc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    -->
             </div>
         </div>
     
@@ -114,8 +114,9 @@
     
         // In the production version, this list of ids might be fetched from a database.
         const playerIds = ["Gnh9Zi7yWKY", "p0xkbudsFqo","UjALrXRNzGE", "BP8mCXXwDfc"];
-        var player;
         const players = [];
+
+        const overlays = document.querySelectorAll('.overlay');
 
         function onYouTubeIframeAPIReady() {
 
@@ -147,6 +148,17 @@
         function onPlayerReady(event) {
             console.log('onPlayerReady');
             event.target.playVideo();
+        }
+
+        function setupOverlays(overlays) {
+            overlays.forEach(el => {
+                console.log(el);
+            })
+        }
+        
+        function onOverlayClick() {
+            console.log('onOverlayClick');
+            alert('click');
         }
 
 
